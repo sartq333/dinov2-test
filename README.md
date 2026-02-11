@@ -1,3 +1,5 @@
+:new: [2025-12-18] *Added support for loading XRay-DINO backbone following [Advancing human-centric AI for robust X-ray analysis through holistic self-supervised learning](https://arxiv.org/pdf/2405.01469), more details are [here](#pretrained-backbone-xray-dino)*
+
 :new: [2025-12-16] *Added Channel-Adaptive DINO code following [Scaling Channel-Adaptive Self-Supervised Learning](https://openreview.net/forum?id=pT8sgtRVAf), more details are [here](#dinov2-for-biology)*
 
 :new: [2025-12-16] *Added Cell-DINO code following [Cell-DINO: Self-Supervised Image-based Embeddings for Cell Fluorescent Microscopy](to appear in Plos One Computational Biology), more details are [here](#dinov2-for-biology)*
@@ -136,6 +138,27 @@ dinov2_vitb14_reg = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14_reg
 dinov2_vitl14_reg = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitl14_reg')
 dinov2_vitg14_reg = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitg14_reg')
 ```
+
+### Pretrained backbone: XRay-DINO
+
+Request for downloading the model is here:
+
+https://ai.meta.com/resources/models-and-libraries/raydino-downloads/
+
+
+After filling the form, you will get an email with a temporary link. You can either download it using `wget` and indicate the checkpoint path in your local filesystem, or you can directly use the URL from the email in the following code:
+
+```python
+import torch
+
+REPO_DIR = <PATH/TO/A/LOCAL/DIRECTORY/WHERE/THE/DINOV2/REPO/WAS/CLONED>
+
+xray_dino_vitl16 = torch.hub.load(REPO_DIR, 'xray_dino_vitl16', source='local', weights=<CHECKPOINT/URL/OR/PATH>)
+```
+
+**License**
+Model weights are released under the FAIR Noncommercial Research License. See LICENSE_XRAY_DINO_MODEL for additional details.
+
 
 ### Pretrained heads - Image classification
 
