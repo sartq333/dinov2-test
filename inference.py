@@ -5,7 +5,7 @@ from dinov2.models.vision_transformer import vit_small
 from torchvision import transforms 
 
 # loading the model
-model = vit_small()
+model = vit_small(patch_size=14)
 # integrating the model with weights 
 checkpoint = "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth"
 state_dict = torch.hub.load_state_dict_from_url(checkpoint)
